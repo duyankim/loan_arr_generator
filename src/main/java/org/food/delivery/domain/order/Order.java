@@ -1,6 +1,25 @@
-package food.delivery.domain.order;
+package org.food.delivery.domain.order;
 
+import javax.persistence.*;
+import java.util.ArrayList;
+
+@Entity
+@Table(name="ORDERS")
 public class Order {
+
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @Column(name="ORDER_ID)
+    private Long id;
+
+    @ManyToOne
+    @JoinColumn(name="SHOP_ID")
+    private Shop shop;
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="ORDER_ID")
+    private List<OrderLineItem> orderLineItems = new ArrayList<>();
+
     public void place() {
         validate();
         ordered();
