@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name="ORDERS")
+@Getter
 public class Order {
 
     @Id
