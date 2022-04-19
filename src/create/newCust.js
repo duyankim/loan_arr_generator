@@ -13,7 +13,7 @@ getCustId = () => {
 }
 
 let custData = [];
-custData[0] = `custId custBirthDate \n`;
+
 getCust = () => {
     let custId = getCustId();
     let custBirthDate = getBirthDate(new Date(1950, 0, 1), new Date());
