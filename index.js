@@ -34,17 +34,37 @@ rl.question("고객을 몇 명 생성하시겠습니까?: ", (input) => {
 	// console.log(`${moreCustCnt}명 더 생성되었습니다.\n`);
 
 	getTxDt();
-});
+})
 
 getTxDt = () => {
-	console.log("계약일(YYYYMMDD) 한도액 차입일(YYYYMMDD) 차입액");
+	// console.log("계약일(YYYYMMDD) 한도액 차입일(YYYYMMDD) 차입액");
 	let inputData = []; //계약일, 한도액, 차입일, 차입액
 
-	rl.on("line", function(line) {
+	rl.question("계약일(YYYYMMDD)  : ", (line) => {
 		inputData.push(line);
-		console.log(inputData);
-		rl.close();
+		
+		rl.question("한도액 : ", (line) => {
+			inputData.push(line);
+
+			rl.question("차입일(YYYYMMDD) : ", (line) => {
+				inputData.push(line);
+
+				rl.question("차입액 : ", (line) => {
+					inputData.push(line);
+					console.log(inputData);
+					rl.close();
+				})
+			})
+		})
 	})
+
+	
+	
+	// rl.on("line", function(line) {
+	// 	inputData.push(line);
+	// 	console.log(inputData);
+	// 	rl.close();
+	// })
 	rl.on("close", function() {
 		process.exit()
 	})
